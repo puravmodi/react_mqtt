@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import CloseIcon from "@mui/icons-material/Close";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { QosOption } from "./index";
 
 const Subscriber = ({ sub, unSub, getsubscribedTopic, connectStatus }) => {
@@ -19,6 +19,10 @@ const Subscriber = ({ sub, unSub, getsubscribedTopic, connectStatus }) => {
     qos: 0,
   });
   const [subscribedTopic, setSubscribedTopic] = useState([]);
+
+  useEffect(() => {
+    getsubscribedTopic(subscribedTopic);
+  }, [getsubscribedTopic, subscribedTopic]);
 
   const onSubscribe = (values) => {
     sub(values);
@@ -30,7 +34,6 @@ const Subscriber = ({ sub, unSub, getsubscribedTopic, connectStatus }) => {
     setSubscribedTopic(newArr);
     unSub(topic);
   };
-  getsubscribedTopic(subscribedTopic);
 
   const SubForm = (
     <>
@@ -100,7 +103,7 @@ const Subscriber = ({ sub, unSub, getsubscribedTopic, connectStatus }) => {
             >
               <Grid container spacing={2}>
                 <Grid item xs={10}>
-                  <p style={{fontWeight:"700"}}>{topic}</p>
+                  <p style={{ fontWeight: "700" }}>{topic}</p>
                 </Grid>
                 <Grid item xs={2}>
                   <CloseIcon

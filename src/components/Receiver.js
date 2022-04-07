@@ -14,14 +14,14 @@ const Receiver = ({ payload, subscribedTopic }) => {
     <div>
       <h3 className="set-title">Receiver</h3>
       {messages.map((m, index) => (
-        <>
+        <div key={index}>
           {subscribedTopic.includes(m.topic) && (
-            <Card key={index} variant="outlined" className="set-title">
+            <Card variant="outlined" className="set-title set-receiver">
               <p style={{ fontWeight: "700" }}>Topic = {m.topic}</p>
               <p>{m.message}</p>
             </Card>
           )}
-        </>
+        </div>
       ))}
     </div>
   );

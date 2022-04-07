@@ -16,8 +16,12 @@ code {
   padding: 0.7em;
 }
 
-.set-margin{ 
-  margin: 0.5em 1.3em
+.set-receiver {
+  margin: 1em;
+}
+
+.set-margin {
+  margin: 0.5em 1.3em;
 }
 
 .set-title {
