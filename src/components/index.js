@@ -24,7 +24,6 @@ const qosOption = [
 
 const HookMqtt = () => {
   const [client, setClient] = useState(null);
-  const [isSubed, setIsSub] = useState(false);
   const [payload, setPayload] = useState({});
   const [connectStatus, setConnectStatus] = useState("Connect");
   const [subscribedTopic, setSubscribedTopic] = useState([]);
@@ -80,7 +79,6 @@ const HookMqtt = () => {
           console.log("Subscribe to topics error", error);
           return;
         }
-        setIsSub(true);
       });
     }
   };
@@ -96,7 +94,6 @@ const HookMqtt = () => {
           console.log("Unsubscribe error", error);
           return;
         }
-        setIsSub(false);
       });
     }
   };
@@ -130,7 +127,6 @@ const HookMqtt = () => {
                 <Subscriber
                   sub={mqttSub}
                   unSub={mqttUnSub}
-                  showUnsub={isSubed}
                   connectStatus={connectStatus}
                   getsubscribedTopic={getsubscribedTopic}
                 />
