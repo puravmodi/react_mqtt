@@ -107,6 +107,7 @@ const Subscriber = ({ sub, unSub, getsubscribedTopic, connectStatus }) => {
                 </Grid>
                 <Grid item xs={2}>
                   <CloseIcon
+                    style={{ cursor: "pointer" }}
                     fontSize="small"
                     onClick={() => handleUnsub(topic)}
                   />
